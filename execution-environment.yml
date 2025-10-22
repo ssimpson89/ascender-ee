@@ -52,6 +52,7 @@ dependencies:
   system: |
     crypto-policies-scripts
     epel-release [platform:rpm]
+    findutils [platform:rpm]
     gcc [platform:rpm]
     gcc-c++ [platform:rpm]
     git-core [platform:rpm]
@@ -114,3 +115,4 @@ additional_build_steps:
       RUN alternatives --install /usr/bin/python3 python3 /usr/bin/python3.11 1
       && alternatives --install /usr/bin/python python /usr/bin/python3.11 1
       && alternatives --install /usr/bin/pip3 pip3 /usr/bin/pip3.11 1
+    - RUN microdnf update -y && microdnf clean all
